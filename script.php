@@ -1,10 +1,25 @@
 <?php
-    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    $json = file_get_contents('questoes.json');           
+    $quest = json_decode($json);
+    $acerto = 0;
+    foreach($quest as $cont => $q)
     {
-        if(isset($_POST['a']))
+        $res_user = $_POST[$cont];
+        $res_corr = isset($q->correct) ? $q->correct : null;
+        if($res_corr == $res_user)
         {
-            echo $_POST['a'];
+            $acerto+=1;
         }
     }
 
+    if (intval($acerto) >= 7)
+    {
+        echo "Aprovado \n";
+    } else 
+    {
+        echo "Retido \n";
+    }
+
+
+    echo $acerto;
 ?>
