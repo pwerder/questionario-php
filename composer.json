@@ -1,0 +1,15 @@
+{
+    "name": "pwerder/questionario-php",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paulo Antonio"
+        }
+    ],
+    "require": {}
+}
